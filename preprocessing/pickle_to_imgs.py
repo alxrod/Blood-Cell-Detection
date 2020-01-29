@@ -11,4 +11,4 @@ def convPklImg(path):
 			img = Image.fromarray(np.uint8(p))
 			img.save(path.replace("processed_pkls", "processed_images")+pkl_path.replace(".pkl",".jpg"))
 
-convPklImg("../dataset/processed_pkls/test/")
+convPklImg("../dataset/processed_pkls/train/")
