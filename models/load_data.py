@@ -8,10 +8,10 @@ def load_folder(path):
 	images = []
 	labels = []
 	for pkl_path in os.listdir(path):
-		with open(path+pkl_path, "rb") as f:
-			p = pickle.load(f)
-			images.append(np.array(p))
-			labels.append(pkl_path.split("_")[0])
+	#	with open(path+pkl_path, "rb") as f:
+	#		p = pickle.load(f)
+		images.append("../dataset/processed_images/train/"+pkl_path)
+		labels.append(pkl_path.split("_")[0])
 	unique_labels = []
 	for i in labels:
 		if i not in unique_labels:
@@ -28,7 +28,7 @@ def load_folder(path):
 	enc = OneHotEncoder()
 	train_labels = enc.fit_transform(encoded_labels).toarray()
 
-	return train_labels, np.array(images), lbs_to_ints
+	return train_labels, images, lbs_to_ints
 
 # labels, images, lti = load_folder("dataset/processed_images/train/")
 # print(lti)
