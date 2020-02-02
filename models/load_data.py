@@ -10,7 +10,7 @@ def load_folder(path):
 	for pkl_path in os.listdir(path):
 	#	with open(path+pkl_path, "rb") as f:
 	#		p = pickle.load(f)
-		images.append("../dataset/processed_images/train/"+pkl_path)
+		images.append(path+pkl_path)
 		labels.append(pkl_path.split("_")[0])
 	unique_labels = []
 	for i in labels:

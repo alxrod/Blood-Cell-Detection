@@ -12,11 +12,11 @@ class VanillaModel(Model):
 		self.pool2 = MaxPool2D((2,2))
 		self.flatten = Flatten()
 		self.d1 = Dense(512, activation="relu")
-		self.dropout1 = Dropout(0.4)
+		self.dropout1 = Dropout(0.6)
 		self.d2 = Dense(128, activation="relu")
-		self.dropout2 = Dropout(0.4)
+		self.dropout2 = Dropout(0.6)
 		self.d3 = Dense(32, activation="relu")
-		self.dropout3 = Dropout(0.4)
+		self.dropout3 = Dropout(0.6)
 		self.d4 = Dense(4, activation="softmax")
 
 	def call(self, x):
