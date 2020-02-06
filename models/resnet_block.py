@@ -27,23 +27,19 @@ class ResnetBlock(tf.keras.Model):
 
 
 	def call(self, data, training=False):
-            shortcut = data
-            x = self.bn1(data)
-            act1 = self.act1(x)
-            x = self.conv1(act1)
-
-            x = self.bn2(x)
-            x = self.act2(x)
-            x = self.conv2(x)
-
-            x = self.bn3(x)
-            x = self.act3(x)
-            x = self.conv3(x)
-            
-            if self.red:
-                shortcut = self.scConv(act1)
-
-            x = add([x, shortcut])
-            return x
+		shortcut = data
+		x = self.bn1(data)
+		act1 = self.act1(x)
+		x = self.conv1(act1)
+		x = self.bn2(x)
+		x = self.act2(x)
+		x = self.conv2(x)
+		x = self.bn3(x)
+		x = self.act3(x)
+		x = self.conv3(x)
+		if self.red:
+			shortcut = self.scConv(act1)
+		x = add([x, shortcut])
+		return x
 
             
